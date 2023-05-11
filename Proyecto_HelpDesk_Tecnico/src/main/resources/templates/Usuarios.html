@@ -1,0 +1,73 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HelpDesk</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/Personalizado.css" rel="stylesheet" />
+</head>
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.docexs.com/wp-content/uploads/2017/10/%D8%B6%D8%B9%D9%81-%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%B5%D8%A7%D8%A8-%D8%A8%D8%B3%D8%A8%D8%A8-%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D8%A9-1024x576.png" alt="Logo" width="70" height="36" class="d-inline-block align-text-top">
+                HelpDesk
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-4 bg-secondary">
+                <h2 class="Cabecera text-bg-info p-3">Navegador de Solicitudes</h2>
+                <form>
+                    <div class="mb-3 mt-3">
+                        <select class="form-select boton" aria-label="Default select example" style="width: 12rem;">
+                            <option selected>Tipo de Busqueda</option>
+                            <option value="1">Nombre</option>
+                            <option value="2">DNI</option>
+                            <option value="3">Codigo</option>
+                        </select>
+                        <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text">⚡</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                                <label for="floatingInputGroup1">Ingrese dato especifico</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success">Generar Consulta</button>
+                        <button type="button" class="btn btn-light">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 py-8 bg-secondary">
+                <h2 class="mt-3 ">Listado</h2>
+                <table class="table tabla table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Empresa</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.use_cod}">Codigo</td>
+                        <td th:text="${usuario.use_nom_ap}">Nombre</td>
+                        <td th:text="${usuario.use_corr}">Email</td>
+                        <td th:text="${usuario.use_Empresa}">Empresa</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+<script src="css/bootstrap.bundle.min.js"></script>
+</body>
+</html>
